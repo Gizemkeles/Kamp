@@ -1,0 +1,29 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Genericsİntro
+{
+    class MyList<T>
+    {
+        T[] items;
+        //constructor
+        public MyList()
+        {
+            items = new T[0];
+        }
+        public void Add(T item)
+        {
+            T[] tempArray = items; //referansımızı tutuyor (geçici olarak tutuyor) elemanımız silinmiyo
+            items = new T[items.Length+1];  //dizinin eleman sayısını 1 artırıyor
+
+            for (int i = 0; i < tempArray.Length; i++)
+            {
+                items[i] = tempArray[i];
+            }
+
+            items[items.Length - 1] = item;  //neden -1.Çünkü 6elemanlıysa length eleman sayısını verir 6-1=5.indeks
+        }
+
+    }
+}
